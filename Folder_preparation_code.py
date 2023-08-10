@@ -70,11 +70,12 @@ def move_files_gender(df):
         copyfile(folder_path+row['user_id']+'/'+'coarse_tilt_aligned_face.'+str(row['face_id'])+'.'+row['original_image'], 'Gender_folder/'+str(row['Gender_Index'])+'/coarse_tilt_aligned_face.'+str(row['face_id'])+'.'+row['original_image'])
         
 
-no_of_folds = 5
-Total_images_details_df = get_total_df(no_of_folds)
-Total_images_details_df = Total_images_details_df.reset_index(drop=True)
-Total_images_details_df = encode_age_tuple(Total_images_details_df)
-Total_images_details_df = Total_images_details_df.reset_index(drop=True)
-Total_images_details_df = encode_gender_tuple(Total_images_details_df)
-move_files_age(Total_images_details_df)
-move_files_gender(Total_images_details_df)
+if __name__="__main__":
+    no_of_folds = 5
+    Total_images_details_df = get_total_df(no_of_folds)
+    Total_images_details_df = Total_images_details_df.reset_index(drop=True)
+    Total_images_details_df = encode_age_tuple(Total_images_details_df)
+    Total_images_details_df = Total_images_details_df.reset_index(drop=True)
+    Total_images_details_df = encode_gender_tuple(Total_images_details_df)
+    move_files_age(Total_images_details_df)
+    move_files_gender(Total_images_details_df)
